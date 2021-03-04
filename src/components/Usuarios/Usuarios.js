@@ -26,10 +26,11 @@ class Usuarios extends Component {
       method: 'DELETE'
     })
       .then(resposta =>{
-        console.log(resposta);
-        let usuarios = this.state.usuarios
-        usuarios = usuarios.filter(x => x.id !== usuario.id)
-        this.setState({usuarios})
+        if(resposta.ok){
+          let usuarios = this.state.usuarios
+          usuarios = usuarios.filter(x => x.id !== usuario.id)
+          this.setState({usuarios})
+        }
       })
     }
   }
